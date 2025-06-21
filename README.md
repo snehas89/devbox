@@ -36,8 +36,20 @@ cd devbox
 npm install
 
 # 4. Start the development server
-npm run dev
+npm run dev </br>
 Then open your browser and go to:
 👉 http://localhost:5173
+
+# Areas for Further Improvement
+🔐 Add proper authentication instead of mock login
+
+🌍 Connect to a real API backend
+
+💾 Persist login session using cookies or localStorage
+
+📊 Enhance API analytics with charts (e.g., Recharts, Chart.js)
+
+🎨 Switch to TailwindCSS or a design system (like MUI)
+
 
 
