@@ -1,0 +1,76 @@
+/* index.css or App.css */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #1e3a8a, #6b21a8, #312e81);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+
+.login-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+
+.login-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-title h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.login-input {
+  width: 94%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(to right, #3b82f6, #9333ea);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.login-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #2563eb, #7e22ce);
+}
+
+.login-hint {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #bfdbfe;
+  margin-top: 1rem;
+}
