@@ -12,7 +12,7 @@ A modern developer dashboard built with React, Vite, and TypeScript. This dashbo
 
 🎨 Lucide React Icons
 
-🧠 Internal Inline CSS (no external stylesheet)
+🧠 Internal Inline CSS 
 
 📦 Getting Started
 Follow these instructions to clone and run the project locally:
