@@ -15,10 +15,15 @@ const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState<typeof mockUser | null>(null);
 
-  const handleLogin = () => {
-    setUser(mockUser);
-    setIsLoggedIn(true);
+ const handleLogin = (name: string, email: string) => {
+  const user = {
+    ...mockUser,
+    name,
+    email,
   };
+  setUser(user);
+  setIsLoggedIn(true);
+};
 
   const handleLogout = () => {
     setUser(null);
@@ -29,7 +34,7 @@ const App: React.FC = () => {
     return <LoginForm onLogin={handleLogin} />;
   }
 
-  return <Dashboard user={user!} onLogout={handleLogout} />;
+return <Dashboard user={user!} onLogout={handleLogout} />;
 };
 
 export default App;

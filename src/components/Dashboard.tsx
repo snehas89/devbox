@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Header from './Header';
-// import StatsCards from './StatsCards';
-// import ProfileCard from './ProfileCard';
-// import ApiUsageTable from './ApiUsageTable';
-import './Dashboard.css'; // ← Import custom styles
+import './Dashboard.css';
+import ProfileCard from './Profilecard';
+import StatsCards from './Statscard';
+import ApiCallsTable from './Apicallstable';
 
 type User = {
   id: number;
@@ -83,6 +82,15 @@ const mockApiCalls: ApiCall[] = [
     status: "success",
     responseTime: 450,
     method: "POST"
+  },
+  {
+    id: 7,
+    apiName: " Gateway API",
+    endpoint: "/api/v1/payments/call",
+    timestamp: "2024-06-20T10:05:00Z",
+    status: "error",
+    responseTime: 1450,
+    method: "POST"
   }
 ];
 
@@ -105,7 +113,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
       <div className="dashboard-loader">
         <div className="text-center">
           <div className="spinner"></div>
-          <p className="text-gray-600">Loading dashboard...</p>
+          <p>Loading dashboard...</p>
         </div>
       </div>
     );
@@ -113,17 +121,34 @@ const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
 
   return (
     <div className="dashboard-container">
-      <div className="container mx-auto px-4 py-8">
-        <Header user={user} onLogout={onLogout} />
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-          <div className="lg:col-span-1">
-            {/* <ProfileCard user={user} onLogout={onLogout} /> */}
+      {/* Header */}
+      <div className="dashboard-header" style={{ position: 'relative' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div>
+            <h1 style={{ fontSize: '32px', color: 'black' }}>Developer Dashboard</h1>
+            <p style={{ color: 'black' }}>
+              Welcome back, {user.name}! Here's your API usage overview.
+            </p>
           </div>
-          <div className="lg:col-span-2">
-            {/* <StatsCards apiCalls={apiCalls} /> */}
+
+          {/* Avatar Hover Section */}
+          <div className="profile-hover-wrapper">
+            <img
+              src={user.avatar}
+              alt="avatar"
+              className="profile-avatar"
+            />
+            <div className="profile-card-hover">
+              <ProfileCard user={user} onLogout={onLogout} />
+            </div>
           </div>
         </div>
-        {/* <ApiUsageTable apiCalls={apiCalls} /> */}
+      </div>
+
+      {/* Main Dashboard Content */}
+      <div className="dashboard-main">
+        <StatsCards apiCalls={apiCalls} />
+        <ApiCallsTable apiCalls={apiCalls} />
       </div>
     </div>
   );
