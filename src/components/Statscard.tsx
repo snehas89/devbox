@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Activity, CheckCircle, XCircle, Clock } from 'lucide-react';
 
 type ApiCall = {
@@ -54,19 +54,36 @@ const StatsCards: React.FC<StatsCardsProps> = ({ apiCalls }) => {
     }
   ];
 
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <div style={styles.grid}>
-      {stats.map((stat, index) => (
-        <div key={index} style={styles.card}>
-          <div style={styles.cardHeader}>
-            <div style={{ ...styles.iconContainer, backgroundColor: stat.bgColor }}>
-              <stat.icon size={24} color={stat.color} />
+      {stats.map((stat, index) => {
+        const isHovered = hoveredIndex === index;
+        return (
+          <div
+            key={index}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            style={{
+              ...styles.card,
+              transform: isHovered ? 'translateY(-6px)' : 'translateY(0)',
+              boxShadow: isHovered
+                ? '0 8px 20px rgba(0,0,0,0.3)'
+                : styles.card.boxShadow,
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+            }}
+          >
+            <div style={styles.cardHeader}>
+              <div style={{ ...styles.iconContainer, backgroundColor: stat.bgColor }}>
+                <stat.icon size={24} color={stat.color} />
+              </div>
             </div>
+            <h3 style={styles.value}>{stat.value}</h3>
+            <p style={styles.label}>{stat.title}</p>
           </div>
-          <h3 style={styles.value}>{stat.value}</h3>
-          <p style={styles.label}>{stat.title}</p>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
@@ -85,7 +102,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
     border: '1px solid #f3f4f6',
     margin: '30px',
-    transition: 'box-shadow 0.3s ease-in-out'
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease'
   },
   cardHeader: {
     display: 'flex',

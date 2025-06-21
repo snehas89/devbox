@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import ProfileCard from './Profilecard';
 import StatsCards from './Statscard';
-import ApiCallsTable from './Apicallstable';
+import ApiCallsTable from './ApiCallStable';
 
 type User = {
   id: number;
@@ -113,7 +113,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
       <div className="dashboard-loader">
         <div className="text-center">
           <div className="spinner"></div>
-          <p>Loading dashboard...</p>
+          <p style={{ color: 'black' }}>Loading dashboard...</p>
         </div>
       </div>
     );
@@ -121,7 +121,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
 
   return (
     <div className="dashboard-container">
-      {/* Header */}
+     
       <div className="dashboard-header" style={{ position: 'relative' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
@@ -131,7 +131,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
             </p>
           </div>
 
-          {/* Avatar Hover Section */}
+          
           <div className="profile-hover-wrapper">
             <img
               src={user.avatar}
@@ -145,7 +145,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
         </div>
       </div>
 
-      {/* Main Dashboard Content */}
+      
       <div className="dashboard-main">
         <StatsCards apiCalls={apiCalls} />
         <ApiCallsTable apiCalls={apiCalls} />

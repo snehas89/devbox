@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckCircle, XCircle, AlertCircle, Clock, Zap, Database } from 'lucide-react';
 
 type ApiCall = {
@@ -16,6 +16,8 @@ type Props = {
 };
 
 const ApiCallsTable: React.FC<Props> = ({ apiCalls }) => {
+  const [hoveredRow, setHoveredRow] = useState<number | null>(null);
+
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'success':
@@ -95,7 +97,16 @@ const ApiCallsTable: React.FC<Props> = ({ apiCalls }) => {
           </thead>
           <tbody>
             {apiCalls.map((call) => (
-              <tr key={call.id} style={styles.tr}>
+              <tr
+                key={call.id}
+                onMouseEnter={() => setHoveredRow(call.id)}
+                onMouseLeave={() => setHoveredRow(null)}
+                style={{
+                  ...styles.tr,
+                  backgroundColor: hoveredRow === call.id ? '#f1f5f9' : 'transparent',
+                  transition: 'background-color 0.3s ease'
+                }}
+              >
                 <td style={styles.td}>
                   <div style={styles.flex}>
                     <div style={styles.apiIcon}>

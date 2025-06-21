@@ -18,7 +18,7 @@ type ProfileCardProps = {
 const ProfileCard: React.FC<ProfileCardProps> = ({ user, onLogout }) => {
   return (
     <div style={styles.card}>
-      {/* Header Row */}
+     
       <div style={styles.headerRow}>
         <h2 style={styles.title}>
           <User size={18} color="#2563eb" style={{ marginRight: '8px' }} />
@@ -30,7 +30,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ user, onLogout }) => {
         </button>
       </div>
 
-      {/* Avatar & Info */}
+     
       <div style={styles.profileRow}>
         <img src={user.avatar} alt={user.name} style={styles.avatar} />
         <div>
@@ -40,7 +40,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ user, onLogout }) => {
         </div>
       </div>
 
-      {/* Join Date */}
+      
       <div style={styles.joinDateBox}>
         <p style={styles.joinLabel}>Member since</p>
         <p style={styles.joinDate}>
