@@ -38,7 +38,7 @@ npm install
 # 4. Start the development server
 npm run dev </br>
 Then open your browser and go to:
-👉 http://localhost:5173
+👉 http://localhost:5173 </br>
 Note:
 You can log in using any credentials — authentication is not enforced. Simply type anything to proceed.
 
