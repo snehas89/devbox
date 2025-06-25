@@ -39,6 +39,8 @@ npm install
 npm run dev </br>
 Then open your browser and go to:
 👉 http://localhost:5173
+Note:
+You can log in using any credentials — authentication is not enforced. Simply type anything to proceed.
 
 # Areas for Further Improvement
 🔐 Add proper authentication instead of mock login
@@ -47,8 +49,7 @@ Then open your browser and go to:
 
 💾 Persist login session using cookies or localStorage
 
-📊 Enhance API analytics with charts (e.g., Recharts, Chart.js)
-
+📊 Enhance API analytics with charts 
 🎨 Switch to TailwindCSS or a design system (like MUI)
 
 
